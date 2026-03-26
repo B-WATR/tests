@@ -55,6 +55,44 @@ Your PR will now be a standard pull request and can be reviewed and merged.
 - Draft PRs cannot trigger certain CI/CD workflows that are set to run only on "opened" PRs (some may need to be configured for "opened" or "ready_for_review").
 - Merging is blocked until the PR is marked as ready.
 
+## Team Workflow for Iterative Comments on a Draft PR
+
+When you create a Draft PR and your teammates comment with requested changes, follow this process:
+
+1. Keep the Draft PR open while you process feedback.
+2. Do additional work on the same branch (e.g., `feature/x`).
+   - `git checkout feature/x`
+   - apply changes
+   - `git add .` and `git commit -m "address review feedback"`
+   - `git push`
+3. GitHub automatically updates the Draft PR with new commits.
+4. Optionally update your PR description with progress and remaining scope.
+5. Use comments to indicate status ("working on this", "ready for next review").
+
+### What to do with the Draft PR while changing
+
+- Leave it in Draft status
+- Do not close the PR for each change
+- Re-request review with comments or by mentioning reviewers
+
+### After applying the changes
+
+- Push the final update to the same branch
+- Ensure CI passes and new feedback is addressed
+- Click "Ready for review" when the work is complete
+
+### Do you create another Draft PR?
+
+- Usually no: use the same Draft PR until it's ready
+- Only create a new PR if branch or scope changes completely
+
+### Final merge phase
+
+1. Convert Draft to a regular PR using "Ready for review".
+2. Complete the review loop and resolve any last comments.
+3. Merge when approved and passing checks.
+4. Delete the branch if the team policy requires.
+
 ## Additional Resources
 
 - [GitHub Documentation on Draft PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)
